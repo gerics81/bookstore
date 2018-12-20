@@ -1,0 +1,28 @@
+<div class="container">
+  <h3>Content of Your Cart:</h3>
+  <div class="row">
+    <div class="col-md-4 fixHeight" *ngFor="let cartItem of cartItems">
+      <div class="card" style="width: 18rem; height: 500px;">
+        <img class="card-img-top" src="{{cartItem.book.coverImageUrl}}" alt="Card image cap">
+        <div class="card-body">
+          <p class="card-text">
+            {{cartItem.book.title}}
+          </p>
+          <li class="list-group-item"><strong>quantity:</strong>
+            {{cartItem.quantity}}
+          </li>
+          <div class="row">
+            <button (click)="removeFromCart(cartItem.book.id);" class="m-1 btn btn-primary">Remove From Cart</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<footer>
+  <div class="container">
+    <div class="row">
+      <button (click)="backToResults();" class="m-1 btn btn-primary">Back To Results</button>
+    </div>
+  </div>
+</footer>

@@ -1,0 +1,3 @@
+interface ImageLinks {
+    thumbnail: string;
+}

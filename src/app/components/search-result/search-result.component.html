@@ -1,0 +1,43 @@
+<div *ngIf="hasError" class="alert alert-danger ">
+  <strong>Error!</strong> An Error ocurred during Http call! :(
+</div>
+<div *ngIf="lastAddedBookTitle != null" class="alert alert-success " role="alert">
+  {{lastAddedBookTitle}} Book added to cart.
+</div>
+<div class="text-center" *ngIf="loading == true">
+  <h1>...Loading Content...</h1>
+</div>
+<div *ngIf="loading != true && !hasError">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 ">
+        <button [disabled]="previousPageIsDisabled" class="btn btn-primary float-md-left" (click)="previousPage();">Previous
+          Page</button>
+      </div>
+      <div class="col-md-6">
+        <button [disabled]="nextPageIsDisabled" class="btn btn-primary float-md-right" (click)="nextPage();">Next
+          Page</button>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <h3>Search result of "{{searchKey}}" </h3>
+    <div class="row">
+      <div class="col-md-4 fixHeight" *ngFor="let book of resultBooks">
+        <div class="card" style="width: 18rem; height: 500px;">
+          <img class="card-img-top" src="{{book.coverImageUrl}}" alt="Card image cap">
+          <div class="card-body">
+            <div class="row">
+              <a routerLink="/book-details/{{ book.id }}" class="no_href_styles">
+                <p class="card-text">{{book.title}}</p>
+              </a>
+            </div>
+            <div class="row">
+              <button (click)="addToCart(book.id);" class="m-1 btn btn-primary">Add To Cart</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

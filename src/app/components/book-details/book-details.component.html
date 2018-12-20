@@ -1,0 +1,51 @@
+<div *ngIf="hasError" class="alert alert-danger ">
+  <strong>Error!</strong> An Error ocurred during Http call! :(
+</div>
+<div class="text-center" *ngIf="book.id == null">
+  <h1>...Loading Content...</h1>
+</div>
+<div *ngIf="book.id != null && ! hasError">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="row">
+          <div class="col-md-4">
+            <h6>Details of "{{book.title}}"</h6>
+            <div class="row">
+              <div class="col-md-12">
+                <img alt="Cover of Book" src="{{book.coverImageUrl}}" />
+              </div>
+            </div>
+            <table class="table  table-bordered">
+              <tbody>
+                <tr>
+                  <td>
+                    Tile
+                  </td>
+                  <td>
+                    {{book.title}}
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    Authors
+                  </td>
+                  <td>
+                    <div *ngFor="let author of book.authors">
+                      {{author}}
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    Description
+                  </td>
+                  <td>
+                    {{book.description}}
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <button (click)="backToResults();" class="m-1 btn btn-primary">Back To Results</button>
+          </div>
+        </div>
