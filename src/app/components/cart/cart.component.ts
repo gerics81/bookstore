@@ -21,7 +21,7 @@ export class CartComponent {
     this.navigationHelperServive.backToResults();
   }
 
-  get cartItems(): CartItem[] {
+  get cartItemsList(): CartItem[] {
     return this.cartService.cartItemsList;
   }
 }

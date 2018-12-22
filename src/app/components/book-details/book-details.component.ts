@@ -35,15 +35,14 @@ export class BookDetailsComponent implements OnInit {
   }
 
   private setSelectedBook(): void {
-    let bookId = this.getBookId();
     if (this.searchBookService.getResultBooksMap() != null) {
-      this.book = this.searchBookService.getResultBooksMap().get(bookId);
+      this.book = this.searchBookService.getResultBooksMap().get(this.getBookId());
     } else {
-      this.setBook(this.googleBookApiService.getBookById(bookId));
+      this.setBookById(this.googleBookApiService.getBookById(this.getBookId()));
     }
   }
 
-  private setBook(response: Observable<ApiBookResponse>) {
+  private setBookById(response: Observable<ApiBookResponse>) {
     response.subscribe(() => {
       response.pipe(
         map(response => {

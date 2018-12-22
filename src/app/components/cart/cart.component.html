@@ -1,7 +1,7 @@
 <div class="container">
   <h3>Content of Your Cart:</h3>
   <div class="row">
-    <div class="col-md-4 fixHeight" *ngFor="let cartItem of cartItems">
+    <div class="col-md-4 fixHeight" *ngFor="let cartItem of cartItemsList">
       <div class="card" style="width: 18rem; height: 500px;">
         <img class="card-img-top" src="{{cartItem.book.coverImageUrl}}" alt="Card image cap">
         <div class="card-body">
